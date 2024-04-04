@@ -1,6 +1,6 @@
 import './App.css'
 import { useState, useEffect } from 'react'
-import Book from './icons/book-2.svg'
+import Block from './components/Block'
 import Sound from './icons/volume.svg'
 
 function App() {
@@ -37,27 +37,27 @@ function App() {
   },[searchTerm])
 
   return (
-    <>
-      <div className='w-full bg-blue-100 py-4 px-6 flex items-center gap-2'>
-        <img src={Book} alt="Book" className='size-8'/>
-        <h2 className='font-bold'>Dictionary</h2>
-      </div>
-      <input 
-      type="text" 
-      placeholder='Enter a word to find the correct definition...' 
-      onChange={(e) => setSearchTerm(e.target.value)} 
-      value={searchTerm}
-      className='w-full border-y py-4 px-6 outline-none'
-      />
+    <main>
+      <div className="container mx-auto px-40 py-20">
+        <Block title={'Word Lookup'}>
+          <input 
+          type="text" 
+          placeholder='Enter a word to find the correct definition...' 
+          onChange={(e) => setSearchTerm(e.target.value)} 
+          value={searchTerm}
+          className='w-full border rounded py-4 px-6 outline-none'
+          />
+        </Block>
       <div className="container mx-auto py-8">
-      {isloading && <div>Loading...</div>}
-      {definition.length === 0 && !isloading && searchTerm && <div>Word not found...</div>}
-      {definition.length > 0 && (
+        <Block>
+        {isloading && <div>Search a Word...</div>}
+        {definition.length === 0 && !isloading && searchTerm && <div>Word not found...</div>}
+        {definition.length > 0 && (
         <ul>
           {definition.map((entry, index) => (
             <li key={index}>
               <div className='flex items-center gap-5 my-4'>
-                <h2 className='text-3xl font-bold'>{entry.word}</h2>
+                <h2 className='text-4xl font-bold'>{entry.word}</h2>
                 <p className='font-light text-slate-500'>{entry.phonetic}</p>
                 {entry.phonetics.map((phonetic, o) => (
                   <ul key={o} className='flex items-center'>
@@ -96,8 +96,10 @@ function App() {
           ))}
         </ul>
       )}
+        </Block>
       </div>
-    </>
+      </div>
+    </main>
   )
 }
 
