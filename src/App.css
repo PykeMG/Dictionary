@@ -6,6 +6,11 @@ body {
     font-family: 'Poppins', sans-serif;
   }
 main {
-background: rgb(255,255,255);
-background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(246,225,255,1) 100%);
+  background-image: url(/cool-background.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+/* background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(246,225,255,1) 100%); */
 }

@@ -37,8 +37,8 @@ function App() {
   },[searchTerm])
 
   return (
-    <main>
-      <div className="container mx-auto px-40 py-20">
+    <main className='min-h-screen'>
+      <div className="container mx-auto xl:px-40 xl:py-20 py-10 px-5">
         <Block title={'Word Lookup'}>
           <input 
           type="text" 
@@ -78,10 +78,10 @@ function App() {
                       <li key={i} className='flex items-start gap-4 my-5'>
                         <p className='border rounded-full w-[40px] h-[40px] flex items-center justify-center'>{i + 1}</p>
                         <div className='flex flex-col gap-1'>
-                          <p className='max-w-[1000px]'>{definition.definition}</p>
+                          <p className='max-w-[250px] sm:max-w-[500px] lg:max-w-[1000px]'>{definition.definition}</p>
                           {definition.example && 
-                          <div className='flex flex-col gap-1'>
-                            <p className='text-slate-500'>Example</p>
+                          <div className='flex flex-col gap-1 max-w-[250px] sm:max-w-[1000px]'>
+                            <p className='text-slate-500 '>Example</p>
                             <p>{definition.example}</p>
                           </div>}
                         </div>
